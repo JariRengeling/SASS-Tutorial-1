@@ -1,0 +1,72 @@
+@import 'partials/reset';
+@import 'partials/mixins';
+
+$primary-color: #F00;
+$border-width: 3px;
+
+$container: 1440px;
+$padding: 25px;
+
+@function half-height($first, $second){
+    @return $container / $first - $padding / $second;
+}
+
+.half {
+    height: half-height(2,2);
+} 
+.half1 {
+    height: half-height(2,3);
+}
+.half2 {
+    height: half-height(2,2);
+}
+
+.first-class {
+    color: $primary-color;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+.second-class {
+    @extend .first-class;
+    border-color: #fff;
+}
+
+.border-blue {
+    border-color: blue;
+    border-width: $border-width;
+}
+
+.border-red {
+    border-collapse: red;
+    border-width: $border-width;
+}
+
+a { font-family: sans-serif; color: $primary-color; 
+    &:hover,
+    &:focus,
+    &:active { color: blue; }
+    &.another-class { color:green;
+        &:hover,
+        &:focus,
+        &:active { color: black; }
+    }
+}
+
+.translateX {
+    @include translateX(13px);
+}
+
+.transformX {
+    @include translateX(10px);
+}
+
+.box1 {
+    @include animate-time;
+}
+.box2 {
+    @include animate-time;
+}
+.box3 {
+    @include animate-time;
+}
